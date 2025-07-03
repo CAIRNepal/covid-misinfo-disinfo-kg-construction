@@ -1,0 +1,187 @@
+@prefix misinfo: <http://cair-nepal.org/covid19-misinfo-nepal#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Shape for MisinformationClaim
+misinfo:MisinformationClaimShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:MisinformationClaim ;
+  sh:property [
+    sh:path misinfo:claim_id ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:pattern "^misinfo-[0-9a-f]{8}$" ;
+  ] ;
+  sh:property [
+    sh:path misinfo:title ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path misinfo:short_description ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path misinfo:full_claim ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path misinfo:fact_checked_truth ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path misinfo:belongs_to_category ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:in (
+      misinfo:Conspiracy
+      misinfo:FakeCures
+      misinfo:FakeNews
+      misinfo:ReligiousMisinfo
+      misinfo:TransmissionMisinfo
+      misinfo:TestingMisinfo
+      misinfo:FakePrevention
+      misinfo:DownplayingPandemic
+      misinfo:DemographicMisinfo
+      misinfo:GeographicMisinfo
+      misinfo:MedicalHoax
+    ) ;
+  ] ;
+  sh:property [
+    sh:path misinfo:references_entity ;
+    sh:minCount 0 ;
+    sh:nodeKind sh:IRI ;
+    sh:class misinfo:Entity ;
+  ] ;
+  sh:property [
+    sh:path misinfo:references_cure ;
+    sh:minCount 0 ;
+    sh:nodeKind sh:IRI ;
+    sh:class misinfo:Cure ;
+  ] ;
+  sh:property [
+    sh:path misinfo:mentions_institution ;
+    sh:minCount 0 ;
+    sh:nodeKind sh:IRI ;
+    sh:class misinfo:Institution ;
+  ] ;
+  sh:property [
+    sh:path misinfo:targets_demographic ;
+    sh:minCount 0 ;
+    sh:nodeKind sh:IRI ;
+    sh:class misinfo:Demographic ;
+  ] ;
+  sh:property [
+    sh:path misinfo:targets_religious_group ;
+    sh:minCount 0 ;
+    sh:nodeKind sh:IRI ;
+    sh:class misinfo:ReligiousGroup ;
+  ] ;
+  sh:property [
+    sh:path misinfo:originates_from ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:in (
+      misinfo:SocialMedia
+      misinfo:TraditionalBeliefs
+      misinfo:WordOfMouth
+    ) ;
+  ] ;
+  sh:property [
+    sh:path misinfo:located_in ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:class misinfo:Location ;
+  ] .
+
+# Shape for Category
+misinfo:CategoryShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:Category ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path misinfo:category_description ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
+
+# Shape for Institution
+misinfo:InstitutionShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:Institution ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
+
+# Shape for Cure
+misinfo:CureShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:Cure ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
+
+# Shape for Entity
+misinfo:EntityShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:Entity ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
+
+# Shape for Demographic
+misinfo:DemographicShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:Demographic ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
+
+# Shape for ReligiousGroup
+misinfo:ReligiousGroupShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:ReligiousGroup ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
+
+# Shape for Location
+misinfo:LocationShape
+  a sh:NodeShape ;
+  sh:targetClass misinfo:Location ;
+  sh:property [
+    sh:path misinfo:name ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+  ] .
