@@ -1,0 +1,220 @@
+@prefix misinfo: <http://example.org/covid19-misinfo-nepal#> .
+@prefix schema: <http://schema.org/> .
+@prefix linkml: <http://w3id.org/linkml/> .
+@prefix cido: <http://purl.obolibrary.org/obo/cido.owl#> .
+@prefix covoc: <http://bioportal.bioontology.org/ontologies/covoc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+misinfo: a owl:Ontology ;
+    rdfs:label "COVID19MisinfoNepal" ;
+    rdfs:comment "An ontology for modeling COVID-19 misinformation in Nepal, capturing claims, categories, sources, and relationships for knowledge graph construction." ;
+    owl:imports cido:, covoc:, linkml:types .
+
+# Classes
+misinfo:MisinformationClaim a owl:Class ;
+    rdfs:label "Misinformation Claim" ;
+    rdfs:comment "Represents a specific misinformation claim about COVID-19 in Nepal." .
+
+misinfo:Category a owl:Class ;
+    rdfs:label "Category" ;
+    rdfs:comment "Represents a misinformation category with metadata." .
+
+misinfo:Institution a owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "An institution mentioned in the misinformation." .
+
+misinfo:Cure a owl:Class ;
+    rdfs:label "Cure" ;
+    rdfs:comment "A cure or remedy referenced in the misinformation, standardized with CIDO." ;
+    skos:related cido:TherapeuticAgent .
+
+misinfo:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:comment "A generic named entity (e.g., Vaccine, 5G, PCRTest), standardized with CIDO." ;
+    skos:related cido:MaterialEntity .
+
+misinfo:Demographic a owl:Class ;
+    rdfs:label "Demographic" ;
+    rdfs:comment "A demographic group targeted by misinformation." .
+
+misinfo:ReligiousGroup a owl:Class ;
+    rdfs:label "Religious Group" ;
+    rdfs:comment "A religious group targeted by misinformation." .
+
+misinfo:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A geographical location mentioned in the misinformation, standardized with COVoc." ;
+    skos:related covoc:GeographicLocation .
+
+# Enum Classes for MisinfoCategoryEnum
+misinfo:MisinfoCategory a owl:Class ;
+    rdfs:label "Misinformation Category" ;
+    rdfs:comment "Categories of misinformation types identified in Nepal, aligned with CIDO where applicable." .
+
+misinfo:Conspiracy a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Conspiracy" ;
+    rdfs:comment "Claims involving conspiracies about COVID-19 origins or control." .
+
+misinfo:FakeCures a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Fake Cures" ;
+    rdfs:comment "False claims about cures or treatments for COVID-19, e.g., unproven drugs." ;
+    skos:related cido:TherapeuticAgent .
+
+misinfo:FakeNews a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Fake News" ;
+    rdfs:comment "Fabricated news stories about COVID-19." .
+
+misinfo:ReligiousMisinfo a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Religious Misinformation" ;
+    rdfs:comment "Misinformation tied to religious beliefs." .
+
+misinfo:TransmissionMisinfo a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Transmission Misinformation" ;
+    rdfs:comment "False claims about how COVID-19 spreads, e.g., aerosol transmission." ;
+    skos:related cido:TransmissionProcess .
+
+misinfo:TestingMisinfo a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Testing Misinformation" ;
+    rdfs:comment "Misinformation about COVID-19 testing methods, e.g., PCR tests." ;
+    skos:related cido:DiagnosticProcedure .
+
+misinfo:FakePrevention a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Fake Prevention" ;
+    rdfs:comment "False claims about preventing COVID-19." .
+
+misinfo:DownplayingPandemic a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Downplaying Pandemic" ;
+    rdfs:comment "Claims that downplay the severity of the pandemic." .
+
+misinfo:DemographicMisinfo a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Demographic Misinformation" ;
+    rdfs:comment "Misinformation targeting specific demographic groups." .
+
+misinfo:GeographicMisinfo a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Geographic Misinformation" ;
+    rdfs:comment "Misinformation tied to specific locations." ;
+    skos:related covoc:GeographicLocation .
+
+misinfo:MedicalHoax a owl:NamedIndividual, misinfo:MisinfoCategory ;
+    rdfs:label "Medical Hoax" ;
+    rdfs:comment "Hoaxes related to medical aspects of COVID-19." .
+
+# Enum Classes for SourceEnum
+misinfo:Source a owl:Class ;
+    rdfs:label "Source" ;
+    rdfs:comment "The origin medium through which the misinformation spread." .
+
+misinfo:SocialMedia a owl:NamedIndividual, misinfo:Source ;
+    rdfs:label "Social Media" ;
+    rdfs:comment "Misinformation spread via social media platforms." .
+
+misinfo:TraditionalBeliefs a owl:NamedIndividual, misinfo:Source ;
+    rdfs:label "Traditional Beliefs" ;
+    rdfs:comment "Misinformation rooted in cultural or traditional beliefs." .
+
+misinfo:WordOfMouth a owl:NamedIndividual, misinfo:Source ;
+    rdfs:label "Word of Mouth" ;
+    rdfs:comment "Misinformation spread through verbal communication." .
+
+# Data Properties
+misinfo:claim_id a owl:DataProperty ;
+    rdfs:label "Claim ID" ;
+    rdfs:comment "Unique identifier for a misinformation claim, e.g., misinfo-12345678." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range xsd:string ;
+    owl:equivalentProperty linkml:identifier .
+
+misinfo:title a owl:DataProperty ;
+    rdfs:label "Title" ;
+    rdfs:comment "Title of the misinformation claim." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range xsd:string .
+
+misinfo:short_description a owl:DataProperty ;
+    rdfs:label "Short Description" ;
+    rdfs:comment "Brief summary of the misinformation claim." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range xsd:string .
+
+misinfo:full_claim a owl:DataProperty ;
+    rdfs:label "Full Claim" ;
+    rdfs:comment "Complete text of the misinformation claim." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range xsd:string .
+
+misinfo:fact_checked_truth a owl:DataProperty ;
+    rdfs:label "Fact-Checked Truth" ;
+    rdfs:comment "Result of fact-checking the claim, e.g., True, False, Partially True." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range xsd:string .
+
+misinfo:name a owl:DataProperty ;
+    rdfs:label "Name" ;
+    rdfs:comment "Name of the entity, category, institution, cure, demographic, religious group, or location." ;
+    rdfs:domain [ a owl:Class ;
+                  owl:unionOf (misinfo:Category misinfo:Institution misinfo:Cure misinfo:Entity
+                               misinfo:Demographic misinfo:ReligiousGroup misinfo:Location) ] ;
+    rdfs:range xsd:string ;
+    owl:equivalentProperty linkml:identifier .
+
+misinfo:category_description a owl:DataProperty ;
+    rdfs:label "Category Description" ;
+    rdfs:comment "Description of the misinformation category." ;
+    rdfs:domain misinfo:Category ;
+    rdfs:range xsd:string .
+
+# Object Properties
+misinfo:belongs_to_category a owl:ObjectProperty ;
+    rdfs:label "Belongs to Category" ;
+    rdfs:comment "Links a misinformation claim to its category." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:MisinfoCategory .
+
+misinfo:references_entity a owl:ObjectProperty ;
+    rdfs:label "References Entity" ;
+    rdfs:comment "Links a misinformation claim to a named entity (e.g., Vaccine, 5G)." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:Entity ;
+    skos:related cido:MaterialEntity .
+
+misinfo:references_cure a owl:ObjectProperty ;
+    rdfs:label "References Cure" ;
+    rdfs:comment "Links a misinformation claim to a cure or remedy." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:Cure ;
+    skos:related cido:TherapeuticAgent .
+
+misinfo:mentions_institution a owl:ObjectProperty ;
+    rdfs:label "Mentions Institution" ;
+    rdfs:comment "Links a misinformation claim to an institution." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:Institution .
+
+misinfo:targets_demographic a owl:ObjectProperty ;
+    rdfs:label "Targets Demographic" ;
+    rdfs:comment "Links a misinformation claim to a demographic group." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:Demographic .
+
+misinfo:targets_religious_group a owl:ObjectProperty ;
+    rdfs:label "Targets Religious Group" ;
+    rdfs:comment "Links a misinformation claim to a religious group." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:ReligiousGroup .
+
+misinfo:originates_from a owl:ObjectProperty ;
+    rdfs:label "Originates From" ;
+    rdfs:comment "Links a misinformation claim to its source medium." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:Source .
+
+misinfo:located_in a owl:ObjectProperty ;
+    rdfs:label "Located In" ;
+    rdfs:comment "Links a misinformation claim to a geographical location." ;
+    rdfs:domain misinfo:MisinformationClaim ;
+    rdfs:range misinfo:Location ;
+    skos:related covoc:GeographicLocation .

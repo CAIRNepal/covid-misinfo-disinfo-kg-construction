@@ -1,0 +1,1084 @@
+@prefix misinfo: <http://cair-nepal.org/covid19-misinfo-nepal#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cido: <http://purl.obolibrary.org/obo/cido.owl#> .
+@prefix covoc: <http://bioportal.bioontology.org/ontologies/covoc#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# Institutions
+misinfo:Institution_PatanHospital a misinfo:Institution ;
+    misinfo:name "Patan Hospital" .
+misinfo:Institution_WHO a misinfo:Institution ;
+    misinfo:name "World Health Organization" .
+misinfo:Institution_NepalArmy a misinfo:Institution ;
+    misinfo:name "Nepal Army" .
+misinfo:Institution_UN a misinfo:Institution ;
+    misinfo:name "United Nations" .
+
+# Cures
+misinfo:Cure_HotLemonWater a misinfo:Cure ;
+    misinfo:name "Hot Lemon Water" .
+misinfo:Cure_CowUrine a misinfo:Cure ;
+    misinfo:name "Cow Urine" .
+misinfo:Cure_Garlic a misinfo:Cure ;
+    misinfo:name "Garlic" .
+misinfo:Cure_Chloroquine a misinfo:Cure ;
+    misinfo:name "Chloroquine" .
+misinfo:Cure_ColloidalSilver a misinfo:Cure ;
+    misinfo:name "Colloidal Silver" .
+misinfo:Cure_VitaminD a misinfo:Cure ;
+    misinfo:name "Vitamin D" .
+misinfo:Cure_PashupatinathWater a misinfo:Cure ;
+    misinfo:name "Pashupatinath Water" .
+misinfo:Cure_SilverNanoparticles a misinfo:Cure ;
+    misinfo:name "Silver Nanoparticles" .
+
+# Entities
+misinfo:Entity_Vaccine a misinfo:Entity ;
+    misinfo:name "Vaccine" .
+misinfo:Entity_5G a misinfo:Entity ;
+    misinfo:name "5G" .
+misinfo:Entity_Mask a misinfo:Entity ;
+    misinfo:name "Mask" .
+misinfo:Entity_OxygenCylinder a misinfo:Entity ;
+    misinfo:name "Oxygen Cylinder" .
+misinfo:Entity_SaltLamp a misinfo:Entity ;
+    misinfo:name "Himalayan Salt Lamp" .
+misinfo:Entity_Lockdown a misinfo:Entity ;
+    misinfo:name "Lockdown" .
+misinfo:Entity_PCRTest a misinfo:Entity ;
+    misinfo:name "PCR Test" .
+misinfo:Entity_HerbalInhaler a misinfo:Entity ;
+    misinfo:name "Herbal Inhaler" .
+
+# Demographics
+misinfo:Demographic_Children a misinfo:Demographic ;
+    misinfo:name "Children" .
+misinfo:Demographic_PregnantWomen a misinfo:Demographic ;
+    misinfo:name "Pregnant Women" .
+misinfo:Demographic_Elderly a misinfo:Demographic ;
+    misinfo:name "Elderly" .
+misinfo:Demographic_Smokers a misinfo:Demographic ;
+    misinfo:name "Smokers" .
+misinfo:Demographic_DaCommunity a misinfo:Demographic ;
+    misinfo:name "Dalit Community" .
+
+# Religious Groups
+misinfo:ReligiousGroup_MuslimCommunity a misinfo:ReligiousGroup ;
+    misinfo:name "Muslim Community" .
+misinfo:ReligiousGroup_HinduCommunity a misinfo:ReligiousGroup ;
+    misinfo:name "Hindu Community" .
+
+# Sources
+misinfo:Source_SocialMedia a misinfo:Source ;
+    misinfo:name "Social Media" .
+misinfo:Source_TraditionalBeliefs a misinfo:Source ;
+    misinfo:name "Traditional Beliefs" .
+misinfo:Source_WordOfMouth a misinfo:Source ;
+    misinfo:name "Word of Mouth" .
+
+# Locations
+misinfo:Location_Nepal a misinfo:Location ;
+    misinfo:name "Nepal" .
+misinfo:Location_Kathmandu a misinfo:Location ;
+    misinfo:name "Kathmandu" .
+
+# Misinformation Claims
+misinfo:Claim_1 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000001" ;
+    misinfo:title "COVID-19 Vaccines Make You Magnetic" ;
+    misinfo:short_description "False claim about vaccine ingredients" ;
+    misinfo:full_claim "Vaccines contain metals that make arms magnetic" ;
+    misinfo:fact_checked_truth "No magnetic ingredients; debunked by WHO" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_2 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000002" ;
+    misinfo:title "Hot Lemon Water Cures COVID" ;
+    misinfo:short_description "Viral home remedy myth" ;
+    misinfo:full_claim "Drinking hot lemon water kills the virus in throat" ;
+    misinfo:fact_checked_truth "No cure exists; symptom relief only" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_cure misinfo:Cure_HotLemonWater ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_3 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000003" ;
+    misinfo:title "5G Spreads COVID-19" ;
+    misinfo:short_description "Tech conspiracy theory" ;
+    misinfo:full_claim "5G networks activate the virus in lungs" ;
+    misinfo:fact_checked_truth "No link between 5G and viruses" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:references_entity misinfo:Entity_5G ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_4 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000004" ;
+    misinfo:title "Black Fungus from Masks" ;
+    misinfo:short_description "False link between masks and infection" ;
+    misinfo:full_claim "Wearing masks causes deadly black fungus" ;
+    misinfo:fact_checked_truth "Mucormycosis is caused by diabetes/steroids" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Mask ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_5 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000005" ;
+    misinfo:title "Oxygen Cylinders Spread COVID" ;
+    misinfo:short_description "False hospital rumor" ;
+    misinfo:full_claim "Oxygen therapy spreads the virus" ;
+    misinfo:fact_checked_truth "Oxygen is safe; virus spreads via droplets" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_OxygenCylinder ;
+    misinfo:originates_from misinfo:WordOfMouth ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_6 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000006" ;
+    misinfo:title "Patan Hospital Burns Bodies Secretly" ;
+    misinfo:short_description "Fake institutional claim" ;
+    misinfo:full_claim "Hospital burns COVID bodies at night to hide deaths" ;
+    misinfo:fact_checked_truth "Death reporting was transparent" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_7 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000007" ;
+    misinfo:title "Nepal Army Poisons Vaccines" ;
+    misinfo:short_description "Anti-government conspiracy" ;
+    misinfo:full_claim "Army adds poison to vaccines to control population" ;
+    misinfo:fact_checked_truth "Vaccines are WHO-approved and safe" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_NepalArmy ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_8 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000008" ;
+    misinfo:title "Cow Urine Kills COVID" ;
+    misinfo:short_description "Dangerous traditional 'cure'" ;
+    misinfo:full_claim "Drinking cow urine boosts immunity against COVID" ;
+    misinfo:fact_checked_truth "No evidence; risks kidney damage" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_cure misinfo:Cure_CowUrine ;
+    misinfo:originates_from misinfo:TraditionalBeliefs ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_9 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000009" ;
+    misinfo:title "Vaccines Kill Children" ;
+    misinfo:short_description "False pediatric claim" ;
+    misinfo:full_claim "12 Nepali children died post-vaccination" ;
+    misinfo:fact_checked_truth "No verified deaths linked to vaccines" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:targets_demographic misinfo:Demographic_Children ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_10 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000000a" ;
+    misinfo:title "WHO Opposes Lockdowns" ;
+    misinfo:short_description "Misrepresented WHO stance" ;
+    misinfo:full_claim "WHO says lockdowns don’t work" ;
+    misinfo:fact_checked_truth "WHO supports targeted lockdowns" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:references_entity misinfo:Entity_Lockdown ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_11 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000000b" ;
+    misinfo:title "Garlic Prevents Infection" ;
+    misinfo:short_description "Oversimplified health advice" ;
+    misinfo:full_claim "Eating raw garlic blocks virus entry" ;
+    misinfo:fact_checked_truth "No food prevents COVID-19" ;
+    misinfo:belongs_to_category misinfo:FakePrevention ;
+    misinfo:references_cure misinfo:Cure_Garlic ;
+    misinfo:originates_from misinfo:TraditionalBeliefs ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_12 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000000c" ;
+    misinfo:title "Salt Lamps Kill COVID" ;
+    misinfo:short_description "Misleading product claim" ;
+    misinfo:full_claim "Himalayan salt lamps purify air of virus" ;
+    misinfo:fact_checked_truth "No evidence; commercial scam" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_entity misinfo:Entity_SaltLamp ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_13 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000000d" ;
+    misinfo:title "Vaccines Cause Infertility" ;
+    misinfo:short_description "False reproductive claim" ;
+    misinfo:full_claim "COVID vaccines attack ovaries causing sterility" ;
+    misinfo:fact_checked_truth "No impact on fertility" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:targets_demographic misinfo:Demographic_PregnantWomen ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_14 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000000e" ;
+    misinfo:title "COVID is Just Flu" ;
+    misinfo:short_description "Pandemic minimization" ;
+    misinfo:full_claim "COVID-19 is no worse than seasonal flu" ;
+    misinfo:fact_checked_truth "COVID has higher mortality/complications" ;
+    misinfo:belongs_to_category misinfo:DownplayingPandemic ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_15 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000000f" ;
+    misinfo:title "Chloroquine Cures COVID" ;
+    misinfo:short_description "Unproven drug promotion" ;
+    misinfo:full_claim "Taking chloroquine pills treats infection" ;
+    misinfo:fact_checked_truth "No proven cure; risky self-medication" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_cure misinfo:Cure_Chloroquine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_16 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000010" ;
+    misinfo:title "Kathmandu Immune to COVID" ;
+    misinfo:short_description "False geographic claim" ;
+    misinfo:full_claim "High altitude protects Kathmandu from virus" ;
+    misinfo:fact_checked_truth "Virus spreads globally regardless of elevation" ;
+    misinfo:belongs_to_category misinfo:GeographicMisinfo ;
+    misinfo:located_in misinfo:Location_Kathmandu ;
+    misinfo:originates_from misinfo:WordOfMouth .
+
+misinfo:Claim_17 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000011" ;
+    misinfo:title "Vaccines Contain Pork" ;
+    misinfo:short_description "Religious misinformation" ;
+    misinfo:full_claim "Vaccines use haram pork gelatin" ;
+    misinfo:fact_checked_truth "No pork-derived ingredients" ;
+    misinfo:belongs_to_category misinfo:ReligiousMisinfo ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:targets_religious_group misinfo:ReligiousGroup_MuslimCommunity ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_18 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000012" ;
+    misinfo:title "COVID Only Affects Elderly" ;
+    misinfo:short_description "False demographic claim" ;
+    misinfo:full_claim "Under-60s are immune to severe COVID" ;
+    misinfo:fact_checked_truth "All age groups are vulnerable" ;
+    misinfo:belongs_to_category misinfo:DemographicMisinfo ;
+    misinfo:targets_demographic misinfo:Demographic_Elderly ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_19 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000013" ;
+    misinfo:title "Mosquitoes Spread COVID" ;
+    misinfo:short_description "False vector claim" ;
+    misinfo:full_claim "Virus transmits via mosquito bites" ;
+    misinfo:fact_checked_truth "Respiratory spread only" ;
+    misinfo:belongs_to_category misinfo:TransmissionMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_20 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000014" ;
+    misinfo:title "Colloidal Silver Cures" ;
+    misinfo:short_description "Dangerous alternative 'cure'" ;
+    misinfo:full_claim "Silver solution kills virus in 72 hours" ;
+    misinfo:fact_checked_truth "No evidence; causes argyria" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_cure misinfo:Cure_ColloidalSilver ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_21 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000015" ;
+    misinfo:title "Vaccines Alter DNA" ;
+    misinfo:short_description "Genetic misinformation" ;
+    misinfo:full_claim "mRNA vaccines change human DNA" ;
+    misinfo:fact_checked_truth "mRNA doesn't interact with DNA" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_22 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000016" ;
+    misinfo:title "Patan Overcounts Deaths" ;
+    misinfo:short_description "Institutional distrust" ;
+    misinfo:full_claim "Hospital marks all deaths as COVID for funds" ;
+    misinfo:fact_checked_truth "Audits confirm accurate reporting" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_23 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000017" ;
+    misinfo:title "Vitamin D Prevents COVID" ;
+    misinfo:short_description "Oversimplified health advice" ;
+    misinfo:full_claim "High-dose Vitamin D grants immunity" ;
+    misinfo:fact_checked_truth "Supports immunity but doesn't prevent infection" ;
+    misinfo:belongs_to_category misinfo:FakePrevention ;
+    misinfo:references_cure misinfo:Cure_VitaminD ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_24 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000018" ;
+    misinfo:title "Lockdowns Are UN Plot" ;
+    misinfo:short_description "Geopolitical conspiracy" ;
+    misinfo:full_claim "UN imposed lockdowns to control Nepal" ;
+    misinfo:fact_checked_truth "National decision based on epidemiology" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_UN ;
+    misinfo:references_entity misinfo:Entity_Lockdown ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_25 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000019" ;
+    misinfo:title "PCR Tests Spread COVID" ;
+    misinfo:short_description "False medical claim" ;
+    misinfo:full_claim "Nasal swabs implant virus in brain" ;
+    misinfo:fact_checked_truth "Tests are sterile and safe" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_PCRTest ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_26 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000001a" ;
+    misinfo:title "Herbal Steam Inhalers Cure" ;
+    misinfo:short_description "Commercial misinformation" ;
+    misinfo:full_claim "XYZ brand inhaler kills 99.9% of virus" ;
+    misinfo:fact_checked_truth "No device kills virus in airways" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_entity misinfo:Entity_HerbalInhaler ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_27 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000001b" ;
+    misinfo:title "COVID Deaths Are Flu" ;
+    misinfo:short_description "Pandemic minimization" ;
+    misinfo:full_claim "All COVID deaths are relabeled flu cases" ;
+    misinfo:fact_checked_truth "Excess mortality data proves uniqueness" ;
+    misinfo:belongs_to_category misinfo:DownplayingPandemic ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_28 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000001c" ;
+    misinfo:title "Vaccines Use Fetal Tissue" ;
+    misinfo:short_description "Religious/ethical misinformation" ;
+    misinfo:full_claim "Made using aborted fetal cells" ;
+    misinfo:fact_checked_truth "Use lab-grown cell lines, not fetal tissue" ;
+    misinfo:belongs_to_category misinfo:ReligiousMisinfo ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_29 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000001d" ;
+    misinfo:title "Pashupatinath Water Immune" ;
+    misinfo:short_description "Religious misinformation" ;
+    misinfo:full_claim "Holy water grants COVID immunity" ;
+    misinfo:fact_checked_truth "No scientific basis" ;
+    misinfo:belongs_to_category misinfo:ReligiousMisinfo ;
+    misinfo:references_cure misinfo:Cure_PashupatinathWater ;
+    misinfo:targets_religious_group misinfo:ReligiousGroup_HinduCommunity ;
+    misinfo:originates_from misinfo:TraditionalBeliefs ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_30 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000001e" ;
+    misinfo:title "COVID Only Affects Smokers" ;
+    misinfo:short_description "Demographic misinformation" ;
+    misinfo:full_claim "Only smokers get severe COVID" ;
+    misinfo:fact_checked_truth "All groups vulnerable" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:targets_demographic misinfo:Demographic_Smokers ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_31 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000001f" ;
+    misinfo:title "WHO Changed PCR Thresholds" ;
+    misinfo:short_description "Testing conspiracy" ;
+    misinfo:full_claim "WHO altered cycles to hide false positives" ;
+    misinfo:fact_checked_truth "Testing standards remain consistent" ;
+    misinfo:belongs_to_category misinfo:TestingMisinfo ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:references_entity misinfo:Entity_PCRTest ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_32 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000020" ;
+    misinfo:title "Vaccinated People Shed Virus" ;
+    misinfo:short_description "Vaccine misinformation" ;
+    misinfo:full_claim "Vaccinees spread virus via 'shedding'" ;
+    misinfo:fact_checked_truth "mRNA vaccines do not cause viral shedding" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_33 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000021" ;
+    misinfo:title "COVID doesn't exist in Heat" ;
+    misinfo:short_description "Climate misinformation" ;
+    misinfo:full_claim "Virus dies above 25°C; Nepal's heat prevents spread" ;
+    misinfo:fact_checked_truth "Spreads in all climates" ;
+    misinfo:belongs_to_category misinfo:GeographicMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_34 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000022" ;
+    misinfo:title "Patan Hospital Fake Deaths" ;
+    misinfo:short_description "Institutional conspiracy" ;
+    misinfo:full_claim "Hospital fakes COVID deaths for WHO funds" ;
+    misinfo:fact_checked_truth "No evidence of fraud" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_35 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000023" ;
+    misinfo:title "Silver Nanoparticles Cure" ;
+    misinfo:short_description "Pseudoscientific claim" ;
+    misinfo:full_claim "Silver nanoparticles destroy virus in blood" ;
+    misinfo:fact_checked_truth "No approved nano-treatment for COVID" ;
+    misinfo:belongs_to_category misinfo:FakeCures ;
+    misinfo:references_cure misinfo:Cure_SilverNanoparticles ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_36 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000024" ;
+    misinfo:title "COVID is US Bioweapon" ;
+    misinfo:short_description "Geopolitical conspiracy" ;
+    misinfo:full_claim "US Army created virus to target China" ;
+    misinfo:fact_checked_truth "Natural zoonotic origin confirmed" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_37 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000025" ;
+    misinfo:title "Vaccines Cause Autism" ;
+    misinfo:short_description "Revived anti-vaxx myth" ;
+    misinfo:full_claim "COVID vaccines linked to autism in kids" ;
+    misinfo:fact_checked_truth "No connection; debunked for decades" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:targets_demographic misinfo:Demographic_Children ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_38 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000026" ;
+    misinfo:title "WHO Faked Pandemic" ;
+    misinfo:short_description "Global health conspiracy" ;
+    misinfo:full_claim "WHO created pandemic to impose vaccines" ;
+    misinfo:fact_checked_truth "Independent scientists confirm pandemic" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_39 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000027" ;
+    misinfo:title "COVID Tests Implant Microchips" ;
+    misinfo:short_description "Surveillance conspiracy" ;
+    misinfo:full_claim "PCR tests insert tracking microchips" ;
+    misinfo:fact_checked_truth "No electronics in tests" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_PCRTest ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_40 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000028" ;
+    misinfo:title "Patan Morgue Overflows" ;
+    misinfo:short_description "Fake visual claim" ;
+    misinfo:full_claim "Photos show bodies piled in Patan morgue" ;
+    misinfo:fact_checked_truth "Old photos from India misrepresented" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_41 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000029" ;
+    misinfo:title "Vaccines Change Blood Type" ;
+    misinfo:short_description "Pseudoscientific claim" ;
+    misinfo:full_claim "Vaccines alter blood from O to A type" ;
+    misinfo:fact_checked_truth "No biological mechanism exists" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_42 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000002a" ;
+    misinfo:title "COVID Vaccine Contains HIV" ;
+    misinfo:short_description "Conspiracy theory" ;
+    misinfo:full_claim "Vaccines include HIV to weaken immunity" ;
+    misinfo:fact_checked_truth "No HIV components in vaccines" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_43 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000002b" ;
+    misinfo:title "Lockdowns Cause More Deaths" ;
+    misinfo:short_description "Misrepresented data" ;
+    misinfo:full_claim "Lockdown deaths exceed COVID deaths in Nepal" ;
+    misinfo:fact_checked_truth "No statistical evidence" ;
+    misinfo:belongs_to_category misinfo:DownplayingPandemic ;
+    misinfo:references_entity misinfo:Entity_Lockdown ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_44 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000002c" ;
+    misinfo:title "COVID Spreads via Water" ;
+    misinfo:short_description "False transmission claim" ;
+    misinfo:full_claim "Virus spreads through tap water" ;
+    misinfo:fact_checked_truth "Respiratory transmission only" ;
+    misinfo:belongs_to_category misinfo:TransmissionMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_45 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000002d" ;
+    misinfo:title "Vaccines Kill in 2 Years" ;
+    misinfo:short_description "Long-term hoax" ;
+    misinfo:full_claim "Vaccine recipients die within 24 months" ;
+    misinfo:fact_checked_truth "No evidence; global data disproves" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_46 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000002e" ;
+    misinfo:title "WHO Owns Virus Patents" ;
+    misinfo:short_description "Financial conspiracy" ;
+    misinfo:full_claim "WHO profits from COVID vaccine patents" ;
+    misinfo:fact_checked_truth "WHO doesn't hold patents" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_47 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000002f" ;
+    misinfo:title "Patan Hospital ICU Scam" ;
+    misinfo:short_description "Institutional distrust" ;
+    misinfo:full_claim "Hospital charges for fake ICU admissions" ;
+    misinfo:fact_checked_truth "No evidence of fraud" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_48 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000030" ;
+    misinfo:title "Vaccines Contain Luciferase" ;
+    misinfo:short_description "Religious conspiracy" ;
+    misinfo:full_claim "Vaccines have 'mark of the beast' enzyme" ;
+    misinfo:fact_checked_truth "No such ingredient" ;
+    misinfo:belongs_to_category misinfo:ReligiousMisinfo ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_49 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000031" ;
+    misinfo:title "COVID is Bacterial Not Viral" ;
+    misinfo:short_description "False medical claim" ;
+    misinfo:full_claim "Treatable with antibiotics, not antivirals" ;
+    misinfo:fact_checked_truth "Caused by SARS-CoV-2 virus" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_50 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000032" ;
+    misinfo:title "Vaccines Cause Paralysis" ;
+    misinfo:short_description "Anti-vaxx misinformation" ;
+    misinfo:full_claim "COVID vaccines lead to sudden paralysis" ;
+    misinfo:fact_checked_truth "No causal link found" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_51 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000033" ;
+    misinfo:title "WHO Admits PCR Tests Flawed" ;
+    misinfo:short_description "Misrepresented statement" ;
+    misinfo:full_claim "WHO said PCR tests are unreliable" ;
+    misinfo:fact_checked_truth "No such admission; tests are accurate" ;
+    misinfo:belongs_to_category misinfo:TestingMisinfo ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:references_entity misinfo:Entity_PCRTest ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_52 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000034" ;
+    misinfo:title "COVID Survives Only Days" ;
+    misinfo:short_description "False longevity claim" ;
+    misinfo:full_claim "Virus dies on surfaces in 24 hours" ;
+    misinfo:fact_checked_truth "Can survive days depending on surface" ;
+    misinfo:belongs_to_category misinfo:TransmissionMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_53 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000035" ;
+    misinfo:title "Patan Hospital Beds Empty" ;
+    misinfo:short_description "Fake visual claim" ;
+    misinfo:full_claim "Photos show empty beds during crisis" ;
+    misinfo:fact_checked_truth "Old photos misrepresented" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_54 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000036" ;
+    misinfo:title "Vaccines Contain Graphene" ;
+    misinfo:short_description "Conspiracy theory" ;
+    misinfo:full_claim "Graphene oxide in vaccines causes clots" ;
+    misinfo:fact_checked_truth "No graphene in vaccines" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_55 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000037" ;
+    misinfo:title "COVID doesn't Spread Asymptomatically" ;
+    misinfo:short_description "False transmission claim" ;
+    misinfo:full_claim "Only symptomatic people spread virus" ;
+    misinfo:fact_checked_truth "Asymptomatic spread confirmed" ;
+    misinfo:belongs_to_category misinfo:TransmissionMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_56 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000038" ;
+    misinfo:title "WHO Nepal Head Corrupt" ;
+    misinfo:short_description "Institutional conspiracy" ;
+    misinfo:full_claim "WHO Nepal director took vaccine bribes" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_57 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000039" ;
+    misinfo:title "Vaccines Cause Cancer" ;
+    misinfo:short_description "Long-term hoax" ;
+    misinfo:full_claim "mRNA vaccines trigger cancer cells" ;
+    misinfo:fact_checked_truth "No biological mechanism" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_58 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000003a" ;
+    misinfo:title "COVID is Fake Pandemic" ;
+    misinfo:short_description "Conspiracy theory" ;
+    misinfo:full_claim "No virus exists; it's just the flu" ;
+    misinfo:fact_checked_truth "Global scientific consensus confirms virus" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_59 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000003b" ;
+    misinfo:title "Vaccines Contain Aborted Fetuses" ;
+    misinfo:short_description "Religious misinformation" ;
+    misinfo:full_claim "Fetal cells used in vaccine production" ;
+    misinfo:fact_checked_truth "No fetal tissue; uses lab-grown cell lines" ;
+    misinfo:belongs_to_category misinfo:ReligiousMisinfo ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_60 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000003c" ;
+    misinfo:title "Patan Hospital Denies Oxygen" ;
+    misinfo:short_description "Fake institutional claim" ;
+    misinfo:full_claim "Hospital refuses oxygen to poor patients" ;
+    misinfo:fact_checked_truth "No verified cases; oxygen was prioritized" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_61 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000003d" ;
+    misinfo:title "COVID Virus Doesn't Exist" ;
+    misinfo:short_description "Extreme conspiracy" ;
+    misinfo:full_claim "Virus never isolated; all tests fake" ;
+    misinfo:fact_checked_truth "SARS-CoV-2 isolated and sequenced globally" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_62 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000003e" ;
+    misinfo:title "Vaccines Magnetize Phones" ;
+    misinfo:short_description "Tech hoax" ;
+    misinfo:full_claim "Vaccinated people can't use touchscreens" ;
+    misinfo:fact_checked_truth "No effect on electronics" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_63 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000003f" ;
+    misinfo:title "WHO Nepal Funds Terrorists" ;
+    misinfo:short_description "Geopolitical conspiracy" ;
+    misinfo:full_claim "WHO diverts funds to militant groups" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_64 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000040" ;
+    misinfo:title "Vaccines Cause 5G Reception" ;
+    misinfo:short_description "Tech/medical hoax" ;
+    misinfo:full_claim "Vaccinated bodies pick up 5G signals" ;
+    misinfo:fact_checked_truth "Biologically impossible" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_65 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000041" ;
+    misinfo:title "COVID Spreads via 5G Waves" ;
+    misinfo:short_description "Tech conspiracy" ;
+    misinfo:full_claim "5G radio waves transmit the virus" ;
+    misinfo:fact_checked_truth "Virus spreads via respiratory droplets" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:references_entity misinfo:Entity_5G ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_66 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000042" ;
+    misinfo:title "Patan Hospital Sells Organs" ;
+    misinfo:short_description "Fake organ trafficking claim" ;
+    misinfo:full_claim "Hospital steals organs from COVID victims" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_67 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000043" ;
+    misinfo:title "Vaccines Contain Nano-Robots" ;
+    misinfo:short_description "Sci-fi conspiracy" ;
+    misinfo:full_claim "Bill Gates implants tracking nano-robots" ;
+    misinfo:fact_checked_truth "No nanotechnology in vaccines" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_68 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000044" ;
+    misinfo:title "COVID Cure Hidden by WHO" ;
+    misinfo:short_description "Global conspiracy" ;
+    misinfo:full_claim "WHO suppresses cheap cures for profit" ;
+    misinfo:fact_checked_truth "No hidden cures exist" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_69 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000045" ;
+    misinfo:title "Vaccines Alter Human DNA" ;
+    misinfo:short_description "Genetic misinformation" ;
+    misinfo:full_claim "Vaccines rewrite DNA to control humans" ;
+    misinfo:fact_checked_truth "mRNA cannot alter human genome" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_70 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000046" ;
+    misinfo:title "Patan Hospital Hides Vaccines" ;
+    misinfo:short_description "Fake supply claim" ;
+    misinfo:full_claim "Hospital hoards vaccines for elites" ;
+    misinfo:fact_checked_truth "Vaccines distributed transparently" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_71 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000047" ;
+    misinfo:title "COVID Virus is Seasonal" ;
+    misinfo:short_description "False climate claim" ;
+    misinfo:full_claim "Virus disappears in summer like flu" ;
+    misinfo:fact_checked_truth "Spreads year-round" ;
+    misinfo:belongs_to_category misinfo:GeographicMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_72 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000048" ;
+    misinfo:title "Vaccines Contain Mercury" ;
+    misinfo:short_description "Toxicity hoax" ;
+    misinfo:full_claim "Thiomersal in vaccines causes poisoning" ;
+    misinfo:fact_checked_truth "No thiomersal in COVID-19 vaccines" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_73 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000049" ;
+    misinfo:title "WHO Nepal Steals Data" ;
+    misinfo:short_description "Surveillance conspiracy" ;
+    misinfo:full_claim "WHO collects DNA via PCR tests" ;
+    misinfo:fact_checked_truth "Tests don't harvest genetic data" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:references_entity misinfo:Entity_PCRTest ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_74 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000004a" ;
+    misinfo:title "Vaccines Cause Infertility in Men" ;
+    misinfo:short_description "Gender-targeted hoax" ;
+    misinfo:full_claim "COVID vaccines reduce sperm count" ;
+    misinfo:fact_checked_truth "No impact on male fertility" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:targets_demographic misinfo:Demographic_PregnantWomen ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_75 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000004b" ;
+    misinfo:title "COVID Spreads via Food" ;
+    misinfo:short_description "False transmission claim" ;
+    misinfo:full_claim "Eating contaminated food causes infection" ;
+    misinfo:fact_checked_truth "Respiratory transmission only" ;
+    misinfo:belongs_to_category misinfo:TransmissionMisinfo ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_76 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000004c" ;
+    misinfo:title "Patan Hospital Fakes COVID Tests" ;
+    misinfo:short_description "Institutional distrust" ;
+    misinfo:full_claim "Hospital reports false positives for money" ;
+    misinfo:fact_checked_truth "No evidence of fraud" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_77 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000004d" ;
+    misinfo:title "Vaccines Contain Animal DNA" ;
+    misinfo:short_description "Religious/ethical hoax" ;
+    misinfo:full_claim "Made using monkey/pig genetic material" ;
+    misinfo:fact_checked_truth "No animal DNA in vaccines" ;
+    misinfo:belongs_to_category misinfo:ReligiousMisinfo ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_78 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000004e" ;
+    misinfo:title "WHO Nepal Infects People" ;
+    misinfo:short_description "Biological conspiracy" ;
+    misinfo:full_claim "WHO staff spread virus intentionally" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_79 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000004f" ;
+    misinfo:title "Vaccines Cause Bell's Palsy" ;
+    misinfo:short_description "Medical misinformation" ;
+    misinfo:full_claim "Facial paralysis is common post-vaccine" ;
+    misinfo:fact_checked_truth "Extremely rare; no causal link" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_80 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000050" ;
+    misinfo:title "COVID Virus Was Lab-Made" ;
+    misinfo:short_description "Origin conspiracy" ;
+    misinfo:full_claim "Wuhan lab engineered SARS-CoV-2" ;
+    misinfo:fact_checked_truth "Natural zoonotic origin confirmed" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_81 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000051" ;
+    misinfo:title "Patan Hospital Denies Care" ;
+    misinfo:short_description "Fake discrimination claim" ;
+    misinfo:full_claim "Hospital refuses Dalit COVID patients" ;
+    misinfo:fact_checked_truth "No verified cases" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:targets_demographic misinfo:Demographic_DaCommunity ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_82 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000052" ;
+    misinfo:title "Vaccines Contain Microchips" ;
+    misinfo:short_description "Surveillance conspiracy" ;
+    misinfo:full_claim "Bill Gates implants trackers via vaccines" ;
+    misinfo:fact_checked_truth "No electronics in vaccines" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_83 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000053" ;
+    misinfo:title "WHO Nepal Bribes Media" ;
+    misinfo:short_description "Institutional conspiracy" ;
+    misinfo:full_claim "WHO pays Nepali media to exaggerate pandemic" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_84 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000054" ;
+    misinfo:title "Vaccines Cause HIV" ;
+    misinfo:short_description "Medical hoax" ;
+    misinfo:full_claim "COVID vaccines induce AIDS" ;
+    misinfo:fact_checked_truth "Biologically impossible" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_85 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000055" ;
+    misinfo:title "COVID Deaths Are Fake" ;
+    misinfo:short_description "Pandemic denial" ;
+    misinfo:full_claim "All COVID deaths are other causes" ;
+    misinfo:fact_checked_truth "Excess mortality data proves impact" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_86 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000056" ;
+    misinfo:title "Patan Hospital Sells Vaccines" ;
+    misinfo:short_description "Fake corruption claim" ;
+    misinfo:full_claim "Hospital sells vaccines on black market" ;
+    misinfo:fact_checked_truth "Vaccines distributed via official channels" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .
+
+misinfo:Claim_87 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000057" ;
+    misinfo:title "Vaccines Contain Aluminum" ;
+    misinfo:short_description "Toxicity hoax" ;
+    misinfo:full_claim "Aluminum adjuvants cause brain damage" ;
+    misinfo:fact_checked_truth "No harmful aluminum levels in vaccines" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_88 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000058" ;
+    misinfo:title "WHO Nepal Experiments on Poor" ;
+    misinfo:short_description "Ethical conspiracy" ;
+    misinfo:full_claim "WHO tests unapproved drugs on Nepali poor" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:mentions_institution misinfo:Institution_WHO ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_89 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-00000059" ;
+    misinfo:title "Vaccines Cause Blood Clots" ;
+    misinfo:short_description "Misrepresented risk" ;
+    misinfo:full_claim "COVID vaccines cause fatal clots" ;
+    misinfo:fact_checked_truth "Extremely rare (1 in 250,000)" ;
+    misinfo:belongs_to_category misinfo:MedicalHoax ;
+    misinfo:references_entity misinfo:Entity_Vaccine ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_90 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000005a" ;
+    misinfo:title "COVID Virus Escaped from US Lab" ;
+    misinfo:short_description "Geopolitical conspiracy" ;
+    misinfo:full_claim "Fort Detrick lab leaked SARS-CoV-2" ;
+    misinfo:fact_checked_truth "No evidence; natural origin confirmed" ;
+    misinfo:belongs_to_category misinfo:Conspiracy ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Nepal .
+
+misinfo:Claim_91 a misinfo:MisinformationClaim ;
+    misinfo:claim_id "misinfo-0000005b" ;
+    misinfo:title "Patan Hospital Uses Fake Meds" ;
+    misinfo:short_description "Fake corruption claim" ;
+    misinfo:full_claim "Hospital administers saline as COVID treatment" ;
+    misinfo:fact_checked_truth "No evidence" ;
+    misinfo:belongs_to_category misinfo:FakeNews ;
+    misinfo:mentions_institution misinfo:Institution_PatanHospital ;
+    misinfo:originates_from misinfo:SocialMedia ;
+    misinfo:located_in misinfo:Location_Kathmandu .

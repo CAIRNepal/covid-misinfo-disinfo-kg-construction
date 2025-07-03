@@ -1,0 +1,194 @@
+id: http://cair-nepal.org/covid19-misinfo-nepal
+name: COVID19MisinfoNepal
+description: An ontology for modeling COVID-19 misinformation in Nepal, capturing claims, categories, sources, and relationships for knowledge graph construction.
+prefixes:
+  misinfo: http://example.org/covid19-misinfo-nepal#
+  schema: http://schema.org/
+  linkml: http://w3id.org/linkml/
+  cido: http://purl.obolibrary.org/obo/cido.owl#
+  covoc: https://raw.githubusercontent.com/EBISPOT/covoc/master/covoc.owl
+imports:
+  - linkml:types
+  - cido
+  - covoc
+default_prefix: misinfo
+
+enums:
+  MisinfoCategoryEnum:
+    description: Categories of misinformation types identified in Nepal, aligned with CIDO where applicable.
+    permissible_values:
+      Conspiracy:
+        description: Claims involving conspiracies about COVID-19 origins or control.
+      FakeCures:
+        description: False claims about cures or treatments for COVID-19, e.g., unproven drugs (CIDO: Therapeutic Agent).
+        annotations:
+          source: cido:TherapeuticAgent
+      FakeNews:
+        description: Fabricated news stories about COVID-19.
+      ReligiousMisinfo:
+        description: Misinformation tied to religious beliefs.
+      TransmissionMisinfo:
+        description: False claims about how COVID-19 spreads, e.g., aerosol transmission (CIDO: Transmission Process).
+        annotations:
+          source: cido:TransmissionProcess
+      TestingMisinfo:
+        description: Misinformation about COVID-19 testing methods, e.g., PCR tests (CIDO: Diagnostic Procedure).
+        annotations:
+          source: cido:DiagnosticProcedure
+      FakePrevention:
+        description: False claims about preventing COVID-19.
+      DownplayingPandemic:
+        description: Claims that downplay the severity of the pandemic.
+      DemographicMisinfo:
+        description: Misinformation targeting specific demographic groups.
+      GeographicMisinfo:
+        description: Misinformation tied to specific locations (COVoc: Geographic Location).
+        annotations:
+          source: covoc:GeographicLocation
+      MedicalHoax:
+        description: Hoaxes related to medical aspects of COVID-19.
+
+  SourceEnum:
+    description: The origin medium through which the misinformation spread.
+    permissible_values:
+      SocialMedia:
+        description: Misinformation spread via social media platforms.
+      TraditionalBeliefs:
+        description: Misinformation rooted in cultural or traditional beliefs.
+      WordOfMouth:
+        description: Misinformation spread through verbal communication.
+
+classes:
+  MisinformationClaim:
+    description: Represents a specific misinformation claim about COVID-19 in Nepal.
+    slots:
+      - claim_id
+      - title
+      - short_description
+      - full_claim
+      - fact_checked_truth
+      - belongs_to_category
+      - references_entity
+      - references_cure
+      - mentions_institution
+      - targets_demographic
+      - targets_religious_group
+      - originates_from
+      - located_in
+    class_uri: misinfo:MisinformationClaim
+
+  Category:
+    description: Represents a misinformation category with metadata.
+    slots:
+      - name
+      - category_description
+    class_uri: misinfo:Category
+
+  Institution:
+    description: An institution mentioned in the misinformation.
+    slots:
+      - name
+    class_uri: misinfo:Institution
+
+  Cure:
+    description: A cure or remedy referenced in the misinformation, standardized with CIDO.
+    slots:
+      - name
+    class_uri: misinfo:Cure
+    annotations:
+      source: cido:TherapeuticAgent
+
+  Entity:
+    description: A generic named entity (e.g., Vaccine, 5G, PCRTest), standardized with CIDO.
+    slots:
+      - name
+    class_uri: misinfo:Entity
+    annotations:
+      source: cido:MaterialEntity
+
+  Demographic:
+    description: A demographic group targeted by misinformation.
+    slots:
+      - name
+    class_uri: misinfo:Demographic
+
+  ReligiousGroup:
+    description: A religious group targeted by misinformation.
+    slots:
+      - name
+    class_uri: misinfo:ReligiousGroup
+
+  Location:
+    description: A geographical location mentioned in the misinformation, standardized with COVoc.
+    slots:
+      - name
+    class_uri: misinfo:Location
+    annotations:
+      source: covoc:GeographicLocation
+
+slots:
+  claim_id:
+    identifier: true
+    range: string
+    required: true
+    pattern: ^misinfo-[0-9a-f]{8}$  # Example ID format
+
+  title:
+    range: string
+    required: true
+
+  short_description:
+    range: string
+
+  full_claim:
+    range: string
+    required: true
+
+  fact_checked_truth:
+    range: string
+
+  belongs_to_category:
+    range: MisinfoCategoryEnum
+    required: true
+
+  references_entity:
+    multivalued: true
+    range: Entity
+    annotations:
+      source: cido:MaterialEntity
+
+  references_cure:
+    multivalued: true
+    range: Cure
+    annotations:
+      source: cido:TherapeuticAgent
+
+  mentions_institution:
+    multivalued: true
+    range: Institution
+
+  targets_demographic:
+    multivalued: true
+    range: Demographic
+
+  targets_religious_group:
+    multivalued: true
+    range: ReligiousGroup
+
+  originates_from:
+    range: SourceEnum
+    required: true
+
+  located_in:
+    range: Location
+    annotations:
+      source: covoc:GeographicLocation
+
+  name:
+    identifier: true
+    range: string
+    required: true
+
+  category_description:
+    range: string
+```
