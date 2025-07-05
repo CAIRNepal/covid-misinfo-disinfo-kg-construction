@@ -88,7 +88,7 @@ misinfo:Location_Kathmandu a misinfo:Location ;
 # Misinformation Claims
 misinfo:Claim_1 a misinfo:MisinformationClaim ;
     misinfo:claim_id "misinfo-00000001" ;
-    misinfo:title "COVID-19 Vaccines Make You Magnetic" ;
+    misinfo:title "COVID Vaccines Make You Magnetic" ;
     misinfo:short_description "False claim about vaccine ingredients" ;
     misinfo:full_claim "Vaccines contain metals that make arms magnetic" ;
     misinfo:fact_checked_truth "No magnetic ingredients; debunked by WHO" ;
