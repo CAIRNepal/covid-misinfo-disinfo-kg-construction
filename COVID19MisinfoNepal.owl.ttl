@@ -1,4 +1,4 @@
-@prefix misinfo: <http://example.org/covid19-misinfo-nepal#> .
+@prefix misinfo: <http://cair-nepal.org/covid19-misinfo-nepal#> .
 @prefix schema: <http://schema.org/> .
 @prefix linkml: <http://w3id.org/linkml/> .
 @prefix cido: <http://purl.obolibrary.org/obo/cido.owl#> .
