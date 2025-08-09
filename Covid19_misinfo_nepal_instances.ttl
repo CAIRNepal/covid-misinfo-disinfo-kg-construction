@@ -4,7 +4,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix cido: <http://purl.obolibrary.org/obo/cido.owl#> .
-@prefix covoc: <http://purl.obolibrary.org/obo/COVOC_0050023> .
+@prefix covoc: <https://raw.githubusercontent.com/EBISPOT/covoc/master/covoc.owl> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # Institutions
